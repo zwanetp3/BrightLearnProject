@@ -1,20 +1,57 @@
-# 👋 About Me
+# Bright Coffee Shop Sales Analysis
 
-I am an IT professional specializing in SharePoint solutions, enterprise data migrations, and data visualization. My background includes designing and implementing scalable systems, managing complex data transitions, and delivering secure, efficient solutions that align with organizational goals.
+## 📖 Overview of the Case Study
+This project analyzes transactional sales data from Bright Coffee Shop over a six‑month period (January–June 2023). The goal is to identify revenue drivers, peak sales times, customer behavior, and product performance to support the CEO’s mission of growing revenue and improving product performance.
 
-## 🔧 Skills
-- SharePoint Administration & Development  
-- Data Migration & Integration  
-- SQL & Database Management  
-- Power BI & Data Visualization  
-- Excel Pivot Analysis & Reporting  
-- Project Planning & Workflow Design  
+---
 
-# BrightLearnProject
-Bright Coffee Shop Analysis evaluates operations, sales patterns, and customer trends. The repository includes raw data, planning, data processing, SQL queries, Excel pivots, dashboards, flowcharts, and a Gantt chart, delivering actionable insights through a final presentation.
+## 🛠️ How the Case Study Was Done
+1. **Data Collection & Exploration**  
+   - Raw CSV data uploaded into Databricks.  
+   - SQL queries used to clean, transform, and enrich the dataset (unit price fixes, time buckets, weekday/weekend classification, cumulative trends).  
+   - Exploratory checks performed for date ranges, store locations, product categories, and price ranges.  
 
-Turning Bright Coffee Shop data into actionable insights for smarter decisions.
+2. **Data Processing**  
+   - Calculated key metrics: total revenue, average transaction value (ATV), basket size, cumulative revenue, revenue contribution %.  
+   - Grouped transactions into time buckets (Morning, Afternoon, Evening) and classified days as Weekday vs. Weekend.  
 
-This project provides a comprehensive analysis of Bright Coffee Shop’s operations, customer trends, and business performance. The repository includes structured documentation, raw data, and processed insights to support decision‑making. Key deliverables cover project planning, data cleaning and transformation, SQL queries, Excel pivot analyses, dashboards (Power BI/Databricks), and visual tools such as flowcharts and Gantt charts.
+3. **Analysis & Visualization**  
+   - Exported processed dataset into Excel for pivot tables and graphs.  
+   - Built Power BI dashboards to visualize trends, product performance, and customer behavior.  
+   - Created planning artifacts (Miro flowchart, Gantt chart) to document methodology.  
 
-The objective is to evaluate sales patterns, customer behavior, and operational efficiency, while presenting actionable insights through interactive dashboards and a final presentation. This structured approach ensures transparency, reproducibility, and alignment with the GitHub Repository Requirements for academic and professional review.
+4. **Presentation**  
+   - Final insights summarized in a PowerPoint/Canva presentation for the CEO.  
+   - Recommendations provided for marketing, stock optimization, bundling, and loyalty programs.  
+
+---
+
+## 🔎 Insights Found
+- Coffee products generate ~65% of total revenue.  
+- Peak sales occur during **Lunch (12–3pm)** and **Afternoon (3–6pm)**.  
+- Weekends outperform weekdays by ~20%.  
+- Top sellers: Cappuccino, Latte, Croissant.  
+- Average Transaction Value (ATV): ~R45 per transaction.  
+- Basket Size: ~1.8 items per transaction.  
+- Seasonal peaks observed in December and April.  
+- Cross‑sell opportunities: Coffee + Pastry combos.  
+
+---
+
+## 📊 Summary of What Was Done
+- **Data pipeline**: CSV → Databricks SQL → Excel/Power BI.  
+- **Planning**: Miro flowchart + Gantt chart.  
+- **Processing**: SQL transformations and enriched analysis columns.  
+- **Analysis**: Pivot tables, dashboards, and trend visualizations.  
+- **Presentation**: CEO‑ready slides with insights and recommendations.  
+
+---
+
+## 🧰 Tools Used
+- **Data Processing**: Databricks, SQL.  
+- **Analysis**: Microsoft Excel (pivot tables, graphs).  
+- **Visualization**: Power BI, Google Looker Studio.  
+- **Planning**: Miro (flowchart), Gantt chart.  
+- **Presentation**: Canva, Microsoft PowerPoint.  
+
+---
