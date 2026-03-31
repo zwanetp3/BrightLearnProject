@@ -1,3 +1,15 @@
+# 👋 About Me
+
+I am an IT professional specializing in SharePoint solutions, enterprise data migrations, and data visualization. My background includes designing and implementing scalable systems, managing complex data transitions, and delivering secure, efficient solutions that align with organizational goals.
+
+## 🔧 Skills
+- SharePoint Administration & Development  
+- Data Migration & Integration  
+- SQL & Database Management  
+- Power BI & Data Visualization  
+- Excel Pivot Analysis & Reporting  
+- Project Planning & Workflow Design  
+
 # BrightLearnProject
 Bright Coffee Shop Analysis evaluates operations, sales patterns, and customer trends. The repository includes raw data, planning, data processing, SQL queries, Excel pivots, dashboards, flowcharts, and a Gantt chart, delivering actionable insights through a final presentation.
 
