@@ -1,11 +1,11 @@
 # Bright Coffee Shop Sales Analysis
 
-## 📖 Overview of the Case Study
+## Overview of the Case Study
 This project analyzes transactional sales data from Bright Coffee Shop over a six‑month period (January–June 2023). The goal is to identify revenue drivers, peak sales times, customer behavior, and product performance to support the CEO’s mission of growing revenue and improving product performance.
 
 ---
 
-## 🛠️ How the Case Study Was Done
+## How the Case Study Was Done
 1. **Data Collection & Exploration**  
    - Raw CSV data uploaded into Databricks.  
    - SQL queries used to clean, transform, and enrich the dataset (unit price fixes, time buckets, weekday/weekend classification, cumulative trends).  
@@ -26,7 +26,7 @@ This project analyzes transactional sales data from Bright Coffee Shop over a si
 
 ---
 
-## 🔎 Insights Found
+## Insights Found
 - Coffee products generate ~65% of total revenue.  
 - Peak sales occur during **Lunch (12–3pm)** and **Afternoon (3–6pm)**.  
 - Weekends outperform weekdays by ~20%.  
@@ -38,7 +38,7 @@ This project analyzes transactional sales data from Bright Coffee Shop over a si
 
 ---
 
-## 📊 Summary of What Was Done
+## Summary of What Was Done
 - **Data pipeline**: CSV → Databricks SQL → Excel/Power BI.  
 - **Planning**: Miro flowchart + Gantt chart.  
 - **Processing**: SQL transformations and enriched analysis columns.  
@@ -47,11 +47,11 @@ This project analyzes transactional sales data from Bright Coffee Shop over a si
 
 ---
 
-## 🧰 Tools Used
-- **Data Processing**: Databricks, SQL.  
+## Tools Used
+- **Data Processing**: Databricks.  
 - **Analysis**: Microsoft Excel (pivot tables, graphs).  
-- **Visualization**: Power BI, Google Looker Studio.  
+- **Visualization**: Power BI  
 - **Planning**: Miro (flowchart), Gantt chart.  
-- **Presentation**: Canva, Microsoft PowerPoint.  
+- **Presentation**:Microsoft PowerPoint.  
 
 ---
