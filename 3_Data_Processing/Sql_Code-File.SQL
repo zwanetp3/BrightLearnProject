@@ -24,7 +24,7 @@ SELECT DISTINCT product_category, product_detail, product_type
 FROM workspace.default.`1773682225332_bright_coffee_shop_analysis_case_st
 
 -- ============================================================
--- Bright Coffee Shop Analysis – Consolidated Query
+-- Bright Coffee Shop Analysis – Consolidated Query (Final Fixed)
 -- ============================================================
 
 SELECT 
@@ -43,10 +43,10 @@ SELECT
     product_type,
     product_detail,
 
-    -- Pricing & Revenue
+    -- Pricing & Revenue (force numeric types)
     CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2)) AS clean_unit_price,
-    transaction_qty,
-    CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2)) * transaction_qty AS total_amount,
+    CAST(transaction_qty AS INT) AS transaction_qty,
+    CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2)) * CAST(transaction_qty AS INT) AS total_amount,
 
     -- Date Breakdown
     dayname(transaction_date) AS day_name,
@@ -68,29 +68,30 @@ SELECT
 
     -- Spend Buckets (Daily Revenue Classification)
     CASE
-        WHEN SUM(transaction_qty * CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2))) 
+        WHEN SUM(CAST(transaction_qty AS INT) * CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2))) 
              OVER (PARTITION BY transaction_date) <= 50 THEN 'Low Spend'
-        WHEN SUM(transaction_qty * CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2))) 
+        WHEN SUM(CAST(transaction_qty AS INT) * CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2))) 
              OVER (PARTITION BY transaction_date) BETWEEN 51 AND 100 THEN 'Medium Spend'
         ELSE 'High Spend'
     END AS spend_bucket,
 
     -- Daily Averages
-    AVG(CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2)) * transaction_qty) 
+    AVG(CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2)) * CAST(transaction_qty AS INT)) 
         OVER (PARTITION BY transaction_date) AS avg_transaction_value,
-    AVG(transaction_qty) OVER (PARTITION BY transaction_date) AS avg_basket_size,
+    AVG(CAST(transaction_qty AS INT)) OVER (PARTITION BY transaction_date) AS avg_basket_size,
 
     -- Cumulative Trends
-    SUM(CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2)) * transaction_qty) 
+    SUM(CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2)) * CAST(transaction_qty AS INT)) 
         OVER (PARTITION BY product_type ORDER BY transaction_date, transaction_time) AS cumulative_revenue,
-    SUM(transaction_qty) 
+    SUM(CAST(transaction_qty AS INT)) 
         OVER (PARTITION BY product_type ORDER BY transaction_date, transaction_time) AS cumulative_units_sold,
 
     -- Revenue Contribution %
-    SUM(CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2)) * transaction_qty) 
+    SUM(CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2)) * CAST(transaction_qty AS INT)) 
         OVER (PARTITION BY transaction_date, product_type) * 100.0 /
-        SUM(CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2)) * transaction_qty) 
+        SUM(CAST(REPLACE(unit_price, ',', '.') AS DECIMAL(10,2)) * CAST(transaction_qty AS INT)) 
         OVER (PARTITION BY transaction_date) AS revenue_contribution_pct
 
 FROM workspace.default.`1773682225332_bright_coffee_shop_analysis_case_study_1`;
+
 
